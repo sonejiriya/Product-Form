@@ -408,6 +408,14 @@
                                 <button  type="button" data-mdb-button-init id="btnSubmit" data-mdb-ripple-init class="btn btn-primary d-block mx-auto btn-submit">Submit</button>
                             </div>
                         </div>
+                        <!-- Pop-up Structure -->
+                        <div class="popup-overlay" id="popupOverlay">
+                            <div class="popup-box">
+                            <h2>Thank You!</h2>
+                            <p>Your submission has been received.</p>
+                            <button class="close-btn" id="closePopup">Close</button>
+                            </div>
+                        </div>
         
                     </div>
                 </form>
@@ -472,6 +480,26 @@
             paypalSubArea.style.display = "block";
         }
     }
+    const openPopup = document.getElementById('openPopup');
+    const closePopup = document.getElementById('closePopup');
+    const popupOverlay = document.getElementById('popupOverlay');
+
+    // Show the pop-up
+    openPopup.addEventListener('click', () => {
+      popupOverlay.style.display = 'flex';
+    });
+
+    // Close the pop-up
+    closePopup.addEventListener('click', () => {
+      popupOverlay.style.display = 'none';
+    });
+
+    // Close the pop-up when clicking outside the box
+    popupOverlay.addEventListener('click', (e) => {
+      if (e.target === popupOverlay) {
+        popupOverlay.style.display = 'none';
+      }
+    });
 
         
     </script>
